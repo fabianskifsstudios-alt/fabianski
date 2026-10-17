@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101820" />
+  <meta name="description" content="Fabianski — Poetry for the human condition. Original poetry, cinematic films, sound, and art." />
+  <title>Fabianski — Poetry for the Human Condition</title>
+  <style>
+    :root {
+      --ocean: #101820;
+      --black: #17191b;
+      --jade: #536b65;
+      --gold: #b59a68;
+      --ivory: #e9e1d2;
+      --muted: #a6adb0;
+      --line: rgba(233,225,210,.16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ocean);
+      color: var(--ivory);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 7%;
+      background: rgba(16,24,32,.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    .logo {
+      color: var(--ivory);
+      font-size: 1.5rem;
+      letter-spacing: .2em;
+      white-space: nowrap;
+    }
+    nav { display: flex; gap: 24px; flex-wrap: wrap; }
+    nav a, .eyebrow {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      font-size: .7rem;
+      letter-spacing: .16em;
+    }
+    nav a { color: var(--muted); }
+    nav a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 83vh;
+      display: flex;
+      align-items: end;
+      padding: 9% 8%;
+      background:
+        linear-gradient(0deg, rgba(10,16,22,.96), rgba(10,16,22,.10)),
+        linear-gradient(90deg, rgba(10,16,22,.45), transparent),
+        url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=2200&q=85")
+        center 55% / cover;
+    }
+    .hero-content { max-width: 760px; }
+    .eyebrow { color: var(--gold); }
+    h1 {
+      margin: 16px 0;
+      font-size: clamp(3.3rem, 9vw, 7.5rem);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .98;
+    }
+    .hero p {
+      max-width: 500px;
+      color: #d0d2d0;
+      font-size: 1.1rem;
+    }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    .button {
+      display: inline-block;
+      padding: 12px 19px;
+      border: 1px solid var(--gold);
+      color: var(--ivory);
+      font-family: Arial, sans-serif;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: transparent;
+    }
+    .button.primary { background: var(--gold); color: var(--black); }
+    .button:hover { background: var(--ivory); color: var(--black); border-color: var(--ivory); }
+
+    section { padding: 90px 8%; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    h2 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 400; margin: 0; }
+    h3 { font-size: 1.45rem; font-weight: 400; }
+    .subtle { color: var(--muted); }
+    .featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .featured img, .card img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+    .featured img { min-height: 330px; max-height: 520px; }
+    .poem-excerpt { font-size: 1.15rem; white-space: pre-line; color: #d5d2ca; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 22px;
+    }
+    .card { border-top: 1px solid var(--line); padding-top: 14px; }
+    .card img { aspect-ratio: 4 / 3; background: #202a31; }
+    .card h3 { margin: 12px 0 2px; }
+    .price { color: var(--gold); font-family: Arial, sans-serif; font-size: .9rem; }
+    .dark-section { background: #141d24; }
+    .film-panel {
+      min-height: 280px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.8), transparent),
+        url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80")
+        center / cover;
+    }
+    .film-panel h3 { font-size: 2rem; margin-bottom: 0; }
+    .about {
+      max-width: 780px;
+      margin: auto;
+      text-align: center;
+    }
+    .about p { font-size: 1.2rem; color: #c8c9c4; }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 8%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ivory);
+      padding: 7px 10px;
+    }
+
+    @media (max-width: 760px) {
+      header { padding: 16px 5%; flex-wrap: wrap; }
+      .menu-toggle { display: block; }
+      nav { display: none; width: 100%; flex-direction: column; gap: 12px; padding: 12px 0; }
+      nav.open { display: flex; }
+      .hero { min-height: 75vh; padding: 18% 6%; }
+      section { padding: 65px 6%; }
+      .featured { grid-template-columns: 1fr; gap: 24px; }
+      .grid { grid-template-columns: 1fr; }
+      .section-heading { align-items: start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#home">FABIANSKI</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false"
+      aria-controls="mainNav">MENU ☰</button>
+    <nav id="mainNav" aria-label="Main navigation">
+      <a href="#poetry">Poetry</a>
+      <a href="#films">Films & Sound</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">An independent artistic universe</div>
+        <h1>Poetry for the<br>human condition.</h1>
+        <p>Words, sound, and moving images exploring the beautiful and difficult nature of being human.</p>
+        <div class="actions">
+          <a class="button primary" href="#poetry">Enter the archive</a>
+          <a class="button" href="#films">Watch the films ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="poetry">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Selected work · 001</div>
+          <h2>Not the Same Oceans</h2>
+        </div>
+        <span class="subtle">A visual poem by Fabianski</span>
+      </div>
+      <div class="featured">
+        <img
+          src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=85"
+          alt="Dark blue ocean waves beneath an open sky">
+        <div>
+          <p class="poem-excerpt">The ocean is no longer the same.
+It mirrors the soul of modern man,
+fed by gluttony,
+corrupted by sin.
+
+Nature's power
+had shaped the man.
+
+Nature's power
+can clean the fish, again.</p>
+          <p class="subtle">Read the complete poem and explore its cinematic adaptation.</p>
+          <div class="actions">
+            <a class="button primary" href="#archive">Explore poetry</a>
+            <a class="button" href="#films">Watch film</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="archive">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">The written word</div>
+          <h2>Poetry Archive</h2>
+        </div>
+        <span class="subtle">A growing collection</span>
+      </div>
+      <div class="grid" id="poemGrid">
+        <article class="card">
+          <div class="eyebrow">Visual poetry · 001</div>
+          <h3>Not the Same Oceans</h3>
+          <p class="subtle">Nature, power, hunger, and the human soul.</p>
+          <a class="button" href="#poetry">Read featured excerpt</a>
+        </article>
+        <article class="card">
+          <div class="eyebrow">Coming soon</div>
+          <h3>Next poem</h3>
+          <p class="subtle">A space for the next original work.</p>
+        </article>
+        <article class="card">
+          <div class="eyebrow">Coming soon</div>
+          <h3>Fragments</h3>
+          <p class="subtle">Short observations from the human condition.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="films">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Images in motion</div>
+          <h2>Films & Sound</h2>
+        </div>
+      </div>
+      <div class="film-panel">
+        <div class="eyebrow">Fabianski · Visual poem</div>
+        <h3>Not the Same Oceans</h3>
+        <p>Poetry translated into image, voice, and atmosphere.</p>
+        <!-- Replace # with your published YouTube video URL -->
+        <div><a class="button primary" href="#"
+          onclick="alert('Replace this link with your published YouTube film URL.'); return false;">Add film link ↗</a></div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="shop">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Objects from the imagination</div>
+          <h2>The Shop</h2>
+        </div>
+        <span class="subtle">Merchandise · Prints · Editions</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+            alt="Plain T-shirt product mockup">
+          <h3>Fabianski T-shirt</h3>
+          <p class="subtle">Minimal artist apparel.</p>
+          <p class="price">Price to be announced</p>
+          <button class="button" onclick="shopNotice()">Product details</button>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80"
+            alt="Books arranged on a table">
+          <h3>Poetry Editions</h3>
+          <p class="subtle">Words to keep close.</p>
+          <p class="price">Price to be announced</p>
+          <button class="button" onclick="shopNotice()">Product details</button>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+            alt="Atmospheric landscape artwork">
+          <h3>Art Prints</h3>
+          <p class="subtle">Images inspired by the poems.</p>
+          <p class="price">Price to be announced</p>
+          <button class="button" onclick="shopNotice()">Product details</button>
+        </article>
+      </div>
+      <p class="subtle">Preview catalog only. Connect a store and payment provider before accepting orders.</p>
+    </section>
+
+    <section id="about">
+      <div class="about">
+        <div class="eyebrow">The artist</div>
+        <h2>About Fabianski</h2>
+        <p>Fabianski is an independent creative project exploring the human condition through poetry, music, and moving images.</p>
+        <p>Each work is an invitation to look beneath the surface—to question what we inherit, what we destroy, and what remains.</p>
+        <a class="button" href="mailto:hello@fabianski.com">Contact the artist</a>
+        <p class="subtle">Replace the example email with your actual contact address.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> FABIANSKI</span>
+    <span>Poetry for the human condition.</span>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("mainNav");
+
+    toggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function shopNotice() {
+      alert("This is a shop preview. Connect your real product catalog and checkout to enable purchases.");
+    }
+  </script>
+</body>
+</html>

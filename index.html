@@ -454,6 +454,70 @@ can clean the fish, again.</p>
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
+const poemCollection = [
+  {
+    number: "001",
+    title: "Not the Same Oceans",
+    image: "./not%20the%20same%20oceans%20pic%20website%20pic.jpeg",
+    alt: "A solitary figure standing at the edge of a dark, stormy ocean",
+    excerpt: `The ocean is no longer the same.
+It mirrors the soul of modern man,
+fed by gluttony,
+corrupted by sin.
+
+Nature's power
+had shaped the man.
+
+Nature's power
+can clean the fish, again.`,
+    description: "An original visual poem exploring nature, power, and the human condition.",
+    link: "#full-poem"
+  }
+];
+
+let currentPoem = 0;
+
+function displayPoem(index) {
+  const poem = poemCollection[index];
+
+  document.getElementById("work-number").textContent =
+    `Selected work · ${poem.number}`;
+  document.getElementById("work-title").textContent = poem.title;
+
+  const image = document.getElementById("work-image");
+  image.src = poem.image;
+  image.alt = poem.alt;
+
+  document.getElementById("work-excerpt").textContent = poem.excerpt;
+  document.getElementById("work-description").textContent = poem.description;
+
+  const readLink = document.getElementById("read-work");
+  readLink.href = poem.link;
+
+  document.getElementById("work-counter").textContent =
+    `${index + 1} / ${poemCollection.length}`;
+
+  document.getElementById("previous-work").disabled = index === 0;
+  document.getElementById("next-work").disabled =
+    index === poemCollection.length - 1;
+}
+
+document.getElementById("previous-work").addEventListener("click", () => {
+  if (currentPoem > 0) {
+    currentPoem--;
+    displayPoem(currentPoem);
+  }
+});
+
+document.getElementById("next-work").addEventListener("click", () => {
+  if (currentPoem < poemCollection.length - 1) {
+    currentPoem++;
+    displayPoem(currentPoem);
+  }
+});
+
+displayPoem(currentPoem);
+
     function shopNotice() {
       alert("This is a shop preview. Connect your real product catalog and checkout to enable purchases.");
     }

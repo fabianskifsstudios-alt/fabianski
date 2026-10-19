@@ -660,7 +660,7 @@ let currentPoem = 0;
 
 function displayPoem(index) {
   const poem = poemCollection[index];
-
+  document.getElementById("watch-film").href = poem.video;
   document.getElementById("work-number").textContent =
     `Selected work · ${poem.number}`;
   document.getElementById("work-title").textContent = poem.title;

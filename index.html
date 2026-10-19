@@ -209,19 +209,23 @@
     </section>
 
     <section id="archive">
+      
       <div class="section-heading">
         <div>
-          <div class="eyebrow">Selected work · 001</div>
-          <h2>Not the Same Oceans</h2>
+          <div class="eyebrow" id="work-number">Selected work · 001</div>
+          <h2 id="work-title">Not the Same Oceans</h2>
         </div>
         <span class="subtle">A visual poem by Fabianski</span>
       </div>
-         <div class="featured">
-      <img
-        src="./not%20the%20same%20oceans%20pic%20website%20pic.jpeg"
-        alt="A solitary figure standing at the edge of a dark, stormy ocean">
+
+      <div class="featured">
+        <img
+          id="work-image"
+          src="./not%20the%20same%20oceans%20pic%20website%20pic.jpeg"
+          alt="A solitary figure standing at the edge of a dark, stormy ocean">
+
         <div>
-          <p class="poem-excerpt">The ocean is no longer the same.
+          <p class="poem-excerpt" id="work-excerpt">The ocean is no longer the same.
 It mirrors the soul of modern man,
 fed by gluttony,
 corrupted by sin.
@@ -231,13 +235,29 @@ had shaped the man.
 
 Nature's power
 can clean the fish, again.</p>
-          <p class="subtle">Read the complete poem and explore its cinematic adaptation.</p>
+
+          <p class="subtle" id="work-description">
+            An original visual poem exploring nature, power, and the human condition.
+          </p>
+
           <div class="actions">
-          <a class="button primary" href="#full-poem">Explore poetry</a>
-            <a class="button" href="#films">Watch film</a>
+            <a class="button primary" id="read-work" href="#full-poem">
+              Read the complete poem
+            </a>
+          </div>
+
+          <div class="actions" style="margin-top: 24px; align-items: center;">
+            <button class="button" type="button" id="previous-work" disabled>
+              ← Previous
+            </button>
+            <span class="subtle" id="work-counter">1 / 1</span>
+            <button class="button" type="button" id="next-work">
+              Next →
+            </button>
           </div>
         </div>
       </div>
+
     </section>
 
    

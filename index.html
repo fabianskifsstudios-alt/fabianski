@@ -169,6 +169,28 @@
       padding: 7px 10px;
     }
 
+.film-entry {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 24px 0;
+  background: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
     @media (max-width: 760px) {
       header { padding: 16px 5%; flex-wrap: wrap; }
       .menu-toggle { display: block; }
@@ -482,28 +504,61 @@ can clean the fish, again.</p>
 ```
 
 
-    <section id="films">
-      <div class="section-heading">
-        <div>
-          <div class="eyebrow">Images in motion</div>
-          <h2>Films & Sound</h2>
-        </div>
-      </div>
-      <div class="film-panel">
-        <div class="eyebrow">Fabianski · Visual poem</div>
-        <h3>Not the Same Oceans</h3>
-        <p>Poetry translated into image, voice, and atmosphere.</p>
-        <!-- Replace # with your published YouTube video URL -->
-       <div>
-  <a class="button primary"
-     href="https://youtu.be/-Xy1d_2NDsE"
-     target="_blank"
-     rel="noopener noreferrer">
-    Watch Not the Same Oceans ↗
-  </a>
-</div>
-      </div>
-    </section>
+
+<section id="films">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow">Images in motion</div>
+      <h2>Films &amp; Sound</h2>
+    </div>
+  </div>
+
+  <!-- FILM 001: NOT THE SAME OCEANS -->
+  <div class="film-panel">
+    <div class="eyebrow">Visual poem · 001</div>
+    <h3>Not the Same Oceans</h3>
+    <p>Poetry translated into image, voice, and atmosphere.</p>
+    <a class="button primary"
+       href="https://youtu.be/-Xy1d_2NDsE"
+       target="_blank"
+       rel="noopener noreferrer">
+      Watch Not the Same Oceans ↗
+    </a>
+  </div>
+
+  <!-- FILM 002: ARCHITECT OF SILENCE -->
+  <article class="film-entry">
+    <div class="eyebrow">Visual poem · 002</div>
+    <h3>Architect of Silence</h3>
+    <p class="poem-excerpt">“We learn to be silent before we learn why.”</p>
+
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/atqg7KK8aNg"
+        title="Architect of Silence — Fabianski"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <p class="subtle">
+      An original cinematic visual poem exploring emotional survival,
+      isolation, and the courage to let the light in.
+    </p>
+
+    <p class="subtle">Written and conceived by Fabianski.</p>
+
+    <a class="button primary"
+       href="https://youtu.be/atqg7KK8aNg"
+       target="_blank"
+       rel="noopener noreferrer">
+      Watch on YouTube ↗
+    </a>
+  </article>
+</section>
+
 
     <section class="dark-section" id="shop">
       <div class="section-heading">
